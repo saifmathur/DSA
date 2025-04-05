@@ -1,5 +1,5 @@
-import java.util.Arrays;
-import java.util.TreeSet;
+import java.util.ArrayList;
+import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -16,21 +16,24 @@ public class Main {
         int x = 6;
         ArrayQuestions arrays = new ArrayQuestions();
         StringQuestions strings = new StringQuestions();
-//        System.out.println(strings.isIPValid("222.111.111.111"));
-//        System.out.println(strings.multiplyStrings("123","456"));
+        LinkedList<Integer> llq = LinkedList.createIntegerLinkedList(3, 20);
+//        llq.traverse();
 
-//        System.out.println(strings.atoi("4193 with words"));
-//        System.out.println(strings.isRotated2("amazon","azonam"));
-//        System.out.println(StringQuestions.StringPermutations.getPermutations("ABC"));
-//        StringQuestions.StringPermutations.driverGenSubset("ABC");
-//            strings.longestRepeatingSubsequence("axxzxy");
-//        strings.romanToInt("MCMIV");
-//        strings.longestUniqueSubstring("abdefgabef");
-//        strings.isRepeat("ababab");
-//        System.out.println(strings.lookandsay(5));
-//        strings.remAnagrams2("bcadeh","hea");
-//            strings.smallestWindow("timetopractice","toc");
-        strings.longestUniqueSubstr("abcdefabcbb");
+
+        //first
+        LinkedList<Long> toAdd1 = new LinkedList<>();
+        LinkedList<Long> toAdd2 = new LinkedList<>();
+        toAdd2.append(3L);
+        toAdd2.append(4L);
+        toAdd2.append(5L);
+
+        toAdd1.append(4L);
+        toAdd1.append(5L);
+
+
+        Node<Long> addedhead = LinkedList.addTwoLists(toAdd1.head, toAdd2.head);
+
+
     }
 
 
