@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LinkedList<T> {
 
@@ -64,7 +66,7 @@ public class LinkedList<T> {
 
     }
 
-    public static LinkedList<Integer> createIntegerLinkedList(int start, int end) {
+    static LinkedList<Integer> createIntegerLinkedList(int start, int end) {
         LinkedList<Integer> llq = new LinkedList<>();
         for (int i = start; i <= end; i++) {
             llq.append(i);
@@ -238,7 +240,7 @@ public class LinkedList<T> {
     }
 
 
-    public static void flatten(TreeNode<Integer> root) {
+    static void flatten(TreeNode<Integer> root) {
         if (root == null) return;
         flatten(root.getLeft());
         flatten(root.getRight());
@@ -335,5 +337,27 @@ public class LinkedList<T> {
             }
         }
         return true;
+    }
+
+
+    static Node.TwoPointerNode<Integer> cloneLinkedList(Node.TwoPointerNode<Integer> head) {
+        // code here
+        Node.TwoPointerNode<Integer> temp = head;
+        Map<Node.TwoPointerNode<Integer>, Node.TwoPointerNode<Integer>> cloneMap = new HashMap<>();
+        while (temp != null){
+            Node.TwoPointerNode<Integer> newNode = new Node.TwoPointerNode<>(temp.getData());
+            cloneMap.put(temp, newNode);
+            temp = temp.getNext();
+        }
+
+        temp = head;
+        while (temp != null){
+            Node.TwoPointerNode<Integer> cloneNode = cloneMap.get(temp);
+            cloneNode.setNext(cloneMap.get(temp.getNext()));
+            cloneNode.setRandom(cloneMap.get(temp.getRandom()));
+            temp = temp.getNext();
+        }
+        System.out.println(cloneMap);
+        return cloneMap.get(head);
     }
 }

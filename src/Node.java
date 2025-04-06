@@ -35,6 +35,43 @@ public class Node<T> {
     }
 
 
+    static class TwoPointerNode<T> {
+        T data;
+        TwoPointerNode<T> next;
+        TwoPointerNode<T> random;
+
+        public TwoPointerNode(T data) {
+            this.data = data;
+            this.next = null;
+            this.random = null;
+        }
+
+
+
+        public void setData(T data) {
+            this.data = data;
+        }
+
+        public void setNext(TwoPointerNode<T> next) {
+            this.next = next;
+        }
+
+        public void setRandom(TwoPointerNode<T> random) {
+            this.random = random;
+        }
+
+        public T getData() {
+            return data;
+        }
+
+        public TwoPointerNode<T> getNext() {
+            return next;
+        }
+
+        public TwoPointerNode<T> getRandom() {
+            return random;
+        }
+    }
 
 
 }
