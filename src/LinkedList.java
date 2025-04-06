@@ -257,7 +257,7 @@ public class LinkedList<T> {
         }
     }
 
-    static Node<Long> addTwoLists(Node<Long> num1, Node<Long> num2) {
+    static Node<Long> addTwoListsMyWay(Node<Long> num1, Node<Long> num2) {
         StringBuilder nums1Sb = new StringBuilder();
         StringBuilder nums2Sb = new StringBuilder();
 
@@ -280,4 +280,60 @@ public class LinkedList<T> {
         return sums.head;
     }
 
+    static Node<Integer> addTwoLists(Node<Integer> l1, Node<Integer> l2) {
+        Node<Integer> dummyHead = new Node<>(0);
+        Node<Integer> current = dummyHead;
+        int carry = 0;
+        while (l1 != null || l2 != null || carry > 0) {
+            int val1 = (l1 != null) ? l1.getData() : 0;
+            int val2 = (l2 != null) ? l2.getData() : 0;
+            int sum = val1 + val2 + carry;
+            carry = sum / 10;
+            int digit = sum % 10;
+            current.setNext(new Node<>(digit));
+            current = current.getNext();
+
+            if (l1 != null) l1 = l1.getNext();
+            if (l2 != null) l2 = l2.getNext();
+        }
+        return dummyHead.getNext();
+    }
+
+    static boolean isPalindrome(LinkedList<Integer> list) {
+        int size = 0;
+        //calculate total size
+        Node<Integer> sizeCalculatorNode = list.head;
+        while (sizeCalculatorNode != null) {
+            size++;
+            sizeCalculatorNode = sizeCalculatorNode.getNext();
+        }
+        int halfSize = size / 2;
+
+        Node<Integer> tempFirstHalf = list.head;
+        Node<Integer> tempSecondHalf = list.head;
+        int count = 0;
+        while (count < halfSize) {
+            count++;
+            tempSecondHalf = tempSecondHalf.getNext();
+        }
+        Node<Integer> prev = null;
+        Node<Integer> current = tempSecondHalf;
+        while (current != null) {
+            Node<Integer> nextNode = current.getNext();
+            current.setNext(prev);
+            prev = current;
+            current = nextNode;
+        }
+        tempSecondHalf = prev;
+        while (tempSecondHalf!=null){
+            if(tempFirstHalf.getData().equals(tempSecondHalf.getData())){
+                tempFirstHalf = tempFirstHalf.getNext();
+                tempSecondHalf = tempSecondHalf.getNext();
+            }
+            else {
+                return false;
+            }
+        }
+        return true;
+    }
 }

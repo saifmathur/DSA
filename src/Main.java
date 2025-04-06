@@ -20,19 +20,6 @@ public class Main {
 //        llq.traverse();
 
 
-        //first
-        LinkedList<Long> toAdd1 = new LinkedList<>();
-        LinkedList<Long> toAdd2 = new LinkedList<>();
-        toAdd2.append(3L);
-        toAdd2.append(4L);
-        toAdd2.append(5L);
-
-        toAdd1.append(4L);
-        toAdd1.append(5L);
-
-
-        Node<Long> addedhead = LinkedList.addTwoLists(toAdd1.head, toAdd2.head);
-
 
     }
 
