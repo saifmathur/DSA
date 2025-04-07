@@ -19,21 +19,22 @@ public class Main {
         LinkedList<Integer> llq = LinkedList.createIntegerLinkedList(3, 20);
 //        llq.traverse();
 
-        Node.TwoPointerNode<Integer> node1 = new Node.TwoPointerNode<>(1);
-        Node.TwoPointerNode<Integer> node2 = new Node.TwoPointerNode<>(3);
-        Node.TwoPointerNode<Integer> node3 = new Node.TwoPointerNode<>(14);
-        Node.TwoPointerNode<Integer> node4 = new Node.TwoPointerNode<>(56);
-
-        node1.setNext(node2);
-        node2.setNext(node3);
-        node3.setNext(node4);
-
-        node1.setRandom(node3);
-        node2.setRandom(node4);
-        node3.setRandom(node4);
+        LinkedList<Integer> sort = new LinkedList<>();
+        sort.append(3);
+        sort.append(4);
+        sort.append(2);
+        sort.append(6);
+        sort.append(7);
+        sort.append(8);
 
 
-        LinkedList.cloneLinkedList(node1);
+        LinkedList<Integer> sort2 = new LinkedList<>();
+        sort2.append(1);
+        sort2.append(2);
+        sort2.append(3);
+        sort2.append(4);
+
+        LinkedList.findIntersection(sort.head, sort2.head);
 
     }
 

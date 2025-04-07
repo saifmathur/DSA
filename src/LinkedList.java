@@ -327,12 +327,11 @@ public class LinkedList<T> {
             current = nextNode;
         }
         tempSecondHalf = prev;
-        while (tempSecondHalf!=null){
-            if(tempFirstHalf.getData().equals(tempSecondHalf.getData())){
+        while (tempSecondHalf != null) {
+            if (tempFirstHalf.getData().equals(tempSecondHalf.getData())) {
                 tempFirstHalf = tempFirstHalf.getNext();
                 tempSecondHalf = tempSecondHalf.getNext();
-            }
-            else {
+            } else {
                 return false;
             }
         }
@@ -344,14 +343,14 @@ public class LinkedList<T> {
         // code here
         Node.TwoPointerNode<Integer> temp = head;
         Map<Node.TwoPointerNode<Integer>, Node.TwoPointerNode<Integer>> cloneMap = new HashMap<>();
-        while (temp != null){
+        while (temp != null) {
             Node.TwoPointerNode<Integer> newNode = new Node.TwoPointerNode<>(temp.getData());
             cloneMap.put(temp, newNode);
             temp = temp.getNext();
         }
 
         temp = head;
-        while (temp != null){
+        while (temp != null) {
             Node.TwoPointerNode<Integer> cloneNode = cloneMap.get(temp);
             cloneNode.setNext(cloneMap.get(temp.getNext()));
             cloneNode.setRandom(cloneMap.get(temp.getRandom()));
@@ -359,5 +358,66 @@ public class LinkedList<T> {
         }
         System.out.println(cloneMap);
         return cloneMap.get(head);
+    }
+
+
+    Node<Integer> segregate(Node<Integer> head) {
+        // add your code here
+        if (head == null || head.getNext() == null) return head;
+
+        Node<Integer> zeroDummy = new Node<>(-1), zeroTail = zeroDummy;
+        Node<Integer> oneDummy = new Node<>(-1), oneTail = oneDummy;
+        Node<Integer> twoDummy = new Node<>(-1), twoTail = twoDummy;
+
+        Node<Integer> current = head;
+        while (current != null) {
+            if (current.getData().equals(0)) {
+                zeroTail.setNext(current);
+                zeroTail = zeroTail.getNext();
+            } else if (current.getData().equals(1)) {
+                oneTail.setNext(current);
+                oneTail = oneTail.getNext();
+            } else {
+                twoTail.setNext(current);
+                twoTail = twoTail.getNext();
+            }
+            current = current.getNext();
+        }
+
+        twoTail.setNext(null);
+        oneTail.setNext(twoDummy.getNext());
+        zeroTail.setNext(oneDummy.getNext());
+
+        return zeroDummy.getNext();
+    }
+
+
+    static Node<Integer> findIntersection(Node<Integer> head1, Node<Integer> head2) {
+        // add your code here
+        Node<Integer> temp = head1;
+        Node<Integer> temp2 = head2;
+        List<Integer> tempList = new ArrayList<>();
+        List<Integer> tempList2 = new ArrayList<>();
+        while (temp != null) {
+            tempList.add(temp.getData());
+            temp = temp.getNext();
+        }
+        while (temp2 != null) {
+            tempList2.add(temp2.getData());
+            temp2 = temp2.getNext();
+        }
+        List<Node<Integer>> common = new ArrayList<>();
+        for (Integer i : tempList){
+            if(tempList2.contains(i)){
+                common.add(new Node<Integer>(i));
+            };
+        }
+        System.out.println(common);
+        for (int i = 0; i < common.size()-1; i++) {
+            common.get(i).setNext(common.get(i+1));
+        }
+
+
+        return common.get(0);
     }
 }
