@@ -17,25 +17,11 @@ public class Main {
         ArrayQuestions arrays = new ArrayQuestions();
         StringQuestions strings = new StringQuestions();
         LinkedList<Integer> llq = LinkedList.createIntegerLinkedList(3, 20);
-//        llq.traverse();
+        Searching searching = new Searching();
 
-        LinkedList<Integer> sort = new LinkedList<>();
-        sort.append(3);
-        sort.append(4);
-        sort.append(2);
-        sort.append(6);
-        sort.append(7);
-        sort.append(8);
+        int[] arr2 = new int[]{1, 2, 4, 5, 7, 8, 3};
 
-
-        LinkedList<Integer> sort2 = new LinkedList<>();
-        sort2.append(1);
-        sort2.append(2);
-        sort2.append(3);
-        sort2.append(4);
-
-        LinkedList.findIntersection(sort.head, sort2.head);
-
+        System.out.println(searching.peakElement(arr2));
     }
 
 
