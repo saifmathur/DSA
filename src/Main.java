@@ -19,9 +19,8 @@ public class Main {
         LinkedList<Integer> llq = LinkedList.createIntegerLinkedList(3, 20);
         Searching searching = new Searching();
 
-        int[] arr2 = new int[]{1, 2, 4, 5, 7, 8, 3};
 
-        System.out.println(searching.peakElement(arr2));
+        System.out.println(searching.medianOf2Optimised(new int[]{-5, 3, 6, 12, 15},new int[]{-12, -10, -6, -3, 4, 10}));
     }
 
 
