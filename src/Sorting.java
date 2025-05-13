@@ -19,4 +19,18 @@ public class Sorting {
         }
         return Arrays.toString(arr);
     }
+
+
+    public int kthSmallest(int[] arr, int k) {
+        // Your code here
+        int maxSoFar = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] > maxSoFar){
+                maxSoFar = arr[i];
+            }
+        }
+        System.out.println(maxSoFar);
+        return 0;
+    }
+
 }
