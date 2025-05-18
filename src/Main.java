@@ -13,6 +13,10 @@ public class Main {
         inventory.addItem(item2);
         inventory.addItem(fruit);
 
+
+        // Add items to the inventory using compile time polymorphism
+        inventory.addItem("Orange", 10);
+
         // Display items in the inventory
         inventory.displayItems();
 

@@ -32,7 +32,7 @@ public class Item {
 
 
 
-    //This is polymorphism
+    //This is polymorphism,
     //what type of polymorphism is this? Runtime or compile time?
     //This is an example of method overriding, which is a form of runtime polymorphism.
     @Override
