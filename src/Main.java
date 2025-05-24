@@ -25,7 +25,8 @@ public class Main {
         computerParts.displayInfo();
 
         // Display items in the inventory
-        inventory.displayItems();
+        inventory.displayItems();   
+
 
 
     }

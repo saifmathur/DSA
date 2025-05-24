@@ -27,4 +27,6 @@ public class Fruit implements ItemStuff {
     public int getQuantity() {
         return quantity;
     }
+
+
 }
