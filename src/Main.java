@@ -1,32 +1,26 @@
+import CollectionsStreamsMultiThreading.*;
 import ObjectOrientedProgramming.Encapsulation.Inventory;
 import ObjectOrientedProgramming.Encapsulation.Item;
 import ObjectOrientedProgramming.InheritanceAndPolymorphism.ComputerParts;
 import ObjectOrientedProgramming.InheritanceAndPolymorphism.Fruit;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-        Inventory inventory = new Inventory();
-        Item item2 = new Item("Banana", 20);
-        Fruit fruit = new Fruit("Fuji", "Apple", 5);
+        JavaStreams<String> js = new JavaStreams<>();
+        js.addElement("Hello", "World", "Java", "Streams", "Hello","Saif");
+//        System.out.println(js.useMap());
+        List<String> filteredList = js.getSomeList();
+        js.usingGroupByFirstLetter();
 
-        inventory.addItem(item2);
-        inventory.addItem(fruit);
-
-
-
-        // Add items to the inventory using compile time polymorphism
-        inventory.addItem("Orange", 10);
-        ComputerParts computerParts = new ComputerParts("CPU", "Intel i7", 1);
-
-
-        computerParts.displayInfo();
-
-        // Display items in the inventory
-        inventory.displayItems();   
-
+        System.out.println(String.join(" | ", filteredList));
+        MultiThreading mt = new MultiThreading("Thread-1");
+        mt.usingExecutorService();
 
 
     }
