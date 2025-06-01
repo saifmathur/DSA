@@ -1,9 +1,5 @@
 package CollectionsStreamsMultiThreading;
 
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.Set;
-
 public class CollectionsJava  {
 
 

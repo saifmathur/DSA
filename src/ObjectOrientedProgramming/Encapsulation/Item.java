@@ -3,7 +3,7 @@ package ObjectOrientedProgramming.Encapsulation;
 public class Item {
     private String name;
     private int quantity;
-
+    final static int MAX_QUANTITY = 100; // Example of a constant
 
     //constructor
     public Item(String name, int quantity) {
